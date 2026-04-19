@@ -1005,12 +1005,8 @@ async function loadDownloads() {
 
 function renderDownloads(data) {
   const panel = document.getElementById('downloadsPanel');
-  const daily = data.daily;
-  const trimmed = daily.slice().reverse();
-  let firstNonZero = trimmed.findIndex(d => d.count > 0);
-  const visible = firstNonZero === -1
-    ? daily
-    : daily.slice(daily.length - 1 - (trimmed.length - 1 - firstNonZero));
+  const firstIdx = data.daily.findIndex(d => d.count > 0);
+  const visible = firstIdx <= 0 ? data.daily : data.daily.slice(firstIdx);
 
   const note = document.getElementById('downloadsNote');
   note.textContent = `${visible.length} jours \u00b7 du ${visible[0].date} au ${visible[visible.length-1].date}`;
