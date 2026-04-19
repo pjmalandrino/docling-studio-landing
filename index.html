@@ -71,7 +71,8 @@ body::after {
   padding: 48px 56px;
   border-radius: 2px;
   position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: space-between;
+  display: grid; grid-template-columns: 1fr 1px 1fr;
+  gap: 48px; align-items: stretch;
 }
 .hero::before {
   content: '';
@@ -87,45 +88,55 @@ body::after {
   0%,100% { opacity: .7; transform: scale(1); }
   50% { opacity: 1; transform: scale(1.08); }
 }
-.hero-left { position: relative; z-index: 1; }
+.hero-divider {
+  width: 1px; background: rgba(245,240,232,0.12);
+  position: relative; z-index: 1; align-self: stretch;
+}
+.hero-panel { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: center; }
+.hero-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-eyebrow svg { width: 12px; height: 12px; }
 .hero-count {
   font-family: var(--font-hero);
-  font-size: 8rem;
+  font-size: 6.5rem;
   color: var(--ivory);
   line-height: .9;
   letter-spacing: -0.02em;
   display: flex; align-items: baseline;
 }
 .hero-cursor {
-  display: inline-block; width: 4px; height: 6rem;
+  display: inline-block; width: 3px; height: 4.6rem;
   background: var(--gold);
-  margin-left: 8px; border-radius: 1px;
+  margin-left: 6px; border-radius: 1px;
   animation: blink 1s steps(1) infinite;
-  vertical-align: baseline;
 }
 @keyframes blink { 0%,50%{opacity:1} 51%,100%{opacity:0} }
 .hero-label {
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   color: rgba(245,240,232,0.45);
-  margin-top: 10px; font-style: italic; font-weight: 300;
+  margin-top: 8px; font-style: italic; font-weight: 300;
 }
-.hero-right { position: relative; z-index: 1; text-align: right; }
-.hero-badge {
+.hero-delta {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-display);
-  font-size: 13px; font-weight: 500;
+  font-size: 12px; font-weight: 500;
   color: var(--gold);
   border: 1px solid rgba(201,162,39,0.3);
-  padding: 6px 14px; border-radius: 2px;
-  letter-spacing: 0.04em;
+  padding: 5px 12px; border-radius: 2px;
+  letter-spacing: 0.04em; margin-top: 16px;
 }
-.hero-badge svg { width: 12px; height: 12px; }
+.hero-delta svg { width: 11px; height: 11px; }
 .hero-meta {
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12px;
   color: rgba(245,240,232,0.3);
-  margin-top: 12px; font-style: italic;
+  margin-top: 10px; font-style: italic;
 }
 
 /* ── Controls ── */
@@ -186,24 +197,53 @@ body::after {
 .btn-refresh.spinning svg { animation: spin .8s linear infinite; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
+/* ── Two-column layout ── */
+.two-col {
+  display: grid; grid-template-columns: minmax(0, 1fr) 1px minmax(0, 1fr);
+  gap: 40px;
+  padding-top: 8px;
+}
+.two-col > .col-stars, .two-col > .col-downloads { min-width: 0; }
+.two-col-divider {
+  background: var(--filet);
+  width: 1px;
+}
+.col-eyebrow {
+  font-family: var(--font-display);
+  font-size: 11px; font-weight: 500;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--charcoal);
+  padding: 20px 0 12px;
+  border-bottom: 1px solid var(--filet);
+  display: flex; align-items: center; gap: 8px;
+}
+.col-eyebrow svg { width: 12px; height: 12px; color: var(--gold); }
+.col-eyebrow .count {
+  margin-left: auto;
+  font-family: var(--font-body);
+  font-size: 12px; font-style: italic;
+  font-weight: 300; letter-spacing: 0;
+  color: rgba(26,25,21,0.45); text-transform: none;
+}
+
 /* ── Stats row ── */
 .stats-row {
-  display: grid; grid-template-columns: repeat(4,1fr);
+  display: grid; grid-template-columns: repeat(2,1fr);
   border-bottom: 1px solid var(--filet);
 }
 .stat-cell {
-  padding: 20px 0; text-align: center;
+  padding: 14px 0; text-align: center;
   border-right: 1px solid var(--filet);
 }
 .stat-cell:last-child { border-right: none; }
 .stat-value {
   font-family: var(--font-display);
-  font-size: 28px; font-weight: 600;
+  font-size: 22px; font-weight: 600;
   color: var(--charcoal); letter-spacing: -0.02em;
 }
 .stat-label {
   font-family: var(--font-body);
-  font-size: 12px; font-style: italic;
+  font-size: 11px; font-style: italic;
   color: rgba(26,25,21,0.45); margin-top: 4px; font-weight: 300;
 }
 
@@ -225,11 +265,8 @@ body::after {
 }
 
 /* ── Charts ── */
-.chart-panel { padding: 24px 0; border-bottom: 1px solid var(--filet-light); }
-.chart-wrap { position: relative; height: 280px; }
-.grid-2 { display: grid; grid-template-columns: 1fr 1fr; }
-.grid-2 > :first-child { border-right: 1px solid var(--filet); padding-right: 32px; }
-.grid-2 > :last-child { padding-left: 32px; }
+.chart-panel { padding: 20px 0; border-bottom: 1px solid var(--filet-light); }
+.chart-wrap { position: relative; height: 220px; }
 canvas { border-radius: 0 !important; }
 
 /* ── Heatmap ── */
@@ -279,66 +316,6 @@ canvas { border-radius: 0 !important; }
 .heatmap-legend .sw {
   width: 10px; height: 10px; border-radius: 50%;
   display: inline-block; background: var(--charcoal);
-}
-
-/* ── Downloads ── */
-.downloads-panel {
-  padding: 24px 0;
-  display: grid; grid-template-columns: 220px 1fr;
-  gap: 32px; align-items: center;
-  border-bottom: 1px solid var(--filet-light);
-}
-.downloads-card {
-  border-right: 1px solid var(--filet); padding-right: 24px;
-}
-.downloads-total {
-  font-family: var(--font-hero);
-  font-size: 4rem; line-height: 1;
-  color: var(--charcoal); letter-spacing: -0.02em;
-}
-.downloads-total-label {
-  font-family: var(--font-body);
-  font-size: 13px; font-style: italic;
-  color: rgba(26,25,21,0.45);
-  margin-top: 8px; font-weight: 300;
-}
-.downloads-chart-wrap { position: relative; height: 140px; }
-@media (max-width: 768px) {
-  .downloads-panel { grid-template-columns: 1fr; gap: 16px; }
-  .downloads-card { border-right: none; border-bottom: 1px solid var(--filet); padding-right: 0; padding-bottom: 16px; }
-}
-
-/* ── Stargazers ── */
-.stargazer-list { padding: 16px 0; }
-.stargazer-row {
-  display: flex; align-items: center;
-  padding: 10px 0; border-bottom: 1px solid var(--filet-light);
-  transition: background 0.15s;
-}
-.stargazer-row:hover { background: rgba(201,162,39,0.04); margin: 0 -12px; padding: 10px 12px; }
-.stargazer-index {
-  font-family: var(--font-display);
-  font-size: 11px; color: rgba(26,25,21,0.25);
-  width: 36px; flex-shrink: 0; letter-spacing: 0.05em;
-}
-.stargazer-avatar {
-  width: 28px; height: 28px; border-radius: 50%;
-  margin-right: 14px; border: 1px solid var(--filet); flex-shrink: 0;
-}
-.stargazer-name {
-  font-family: var(--font-display);
-  font-size: 14px; font-weight: 500; flex: 1;
-}
-.stargazer-name a {
-  color: inherit; text-decoration: none;
-  border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
-}
-.stargazer-name a:hover { border-bottom-color: var(--gold); }
-.stargazer-date {
-  font-family: var(--font-body);
-  font-size: 13px; font-style: italic;
-  color: rgba(26,25,21,0.4); font-weight: 300;
 }
 
 /* ── Colophon ── */
@@ -393,18 +370,13 @@ canvas { border-radius: 0 !important; }
 /* ── Responsive ── */
 @media (max-width: 768px) {
   .observatory { padding: 0 16px; }
-  .hero { padding: 32px 24px; flex-direction: column; align-items: flex-start; gap: 24px; }
-  .hero-count { font-size: 5rem; }
-  .hero-cursor { height: 3.8rem; }
-  .hero-right { text-align: left; }
-  .grid-2 { grid-template-columns: 1fr; }
-  .grid-2 > :first-child { border-right: none; padding-right: 0; border-bottom: 1px solid var(--filet); padding-bottom: 24px; }
-  .grid-2 > :last-child { padding-left: 0; padding-top: 24px; }
-  .stats-row { grid-template-columns: repeat(2,1fr); }
-  .stat-cell:nth-child(2) { border-right: none; }
-  .stat-cell:nth-child(1), .stat-cell:nth-child(2) { border-bottom: 1px solid var(--filet); }
+  .hero { padding: 32px 24px; grid-template-columns: 1fr; gap: 28px; }
+  .hero-divider { width: 100%; height: 1px; }
+  .hero-count { font-size: 4.4rem; }
+  .hero-cursor { height: 3.2rem; }
+  .two-col { grid-template-columns: 1fr; gap: 0; }
+  .two-col-divider { width: 100%; height: 1px; margin: 24px 0; }
   .controls { flex-direction: column; align-items: flex-start; }
-  .date-inputs { margin-left: 0; }
   .cartouche { flex-direction: column; gap: 4px; }
 }
 </style>
@@ -419,37 +391,49 @@ canvas { border-radius: 0 !important; }
   </header>
 
   <div class="hero">
-    <div class="hero-left">
+    <div class="hero-panel">
+      <div class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        Etoiles
+      </div>
       <div class="hero-count">
         <span id="heroCount">--</span>
         <span class="hero-cursor"></span>
       </div>
-      <div class="hero-label">etoiles observees a ce jour</div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-badge" id="heroBadge">
+      <div class="hero-label">observees a ce jour</div>
+      <div class="hero-delta" id="heroBadge">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         <span>+0 cette semaine</span>
       </div>
       <div class="hero-meta" id="heroMeta">derniere observation : --</div>
     </div>
+    <div class="hero-divider"></div>
+    <div class="hero-panel">
+      <div class="hero-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Telechargements
+      </div>
+      <div class="hero-count">
+        <span id="heroDownloads">--</span>
+        <span class="hero-cursor"></span>
+      </div>
+      <div class="hero-label">tirages cumules</div>
+      <div class="hero-delta" id="heroDownloadsDelta">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span>+0 cette semaine</span>
+      </div>
+      <div class="hero-meta" id="heroDownloadsMeta">releve : --</div>
+    </div>
   </div>
 
   <div class="controls">
-    <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px;">
-      <div class="filter-group">
-        <label>Periode :</label>
-        <button class="filter-btn" data-period="7">7j</button>
-        <button class="filter-btn" data-period="14">14j</button>
-        <button class="filter-btn" data-period="30">30j</button>
-        <button class="filter-btn" data-period="90">90j</button>
-        <button class="filter-btn active" data-period="all">Tout</button>
-      </div>
-      <div class="date-inputs">
-        <input type="date" id="dateFrom">
-        <span>—</span>
-        <input type="date" id="dateTo">
-      </div>
+    <div class="filter-group">
+      <label>Periode :</label>
+      <button class="filter-btn" data-period="7">7j</button>
+      <button class="filter-btn" data-period="14">14j</button>
+      <button class="filter-btn" data-period="30">30j</button>
+      <button class="filter-btn" data-period="90">90j</button>
+      <button class="filter-btn active" data-period="all">Tout</button>
     </div>
     <button class="btn-refresh" id="btnRefresh">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -460,64 +444,86 @@ canvas { border-radius: 0 !important; }
     </button>
   </div>
 
-  <div class="stats-row">
-    <div class="stat-cell"><div class="stat-value" id="statTotal">--</div><div class="stat-label">sur la periode</div></div>
-    <div class="stat-cell"><div class="stat-value" id="statThisWeek">--</div><div class="stat-label">cette semaine</div></div>
-    <div class="stat-cell"><div class="stat-value" id="statAvg">--</div><div class="stat-label">moy. / semaine</div></div>
-    <div class="stat-cell"><div class="stat-value" id="statPeak">--</div><div class="stat-label">pic journalier</div></div>
-  </div>
+  <div class="two-col">
 
-  <div class="section-header">
-    <div class="section-title">Courbe cumulative</div>
-    <div class="section-note">releve chronologique des observations</div>
-  </div>
-  <div class="chart-panel">
-    <div class="chart-wrap"><canvas id="chartCumulative"></canvas></div>
-  </div>
+    <!-- ─── Colonne Etoiles ─── -->
+    <div class="col-stars">
+      <div class="col-eyebrow">
+        <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26"/></svg>
+        Etoiles
+        <span class="count" id="starsCount">--</span>
+      </div>
 
-  <div class="grid-2">
-    <div>
+      <div class="stats-row">
+        <div class="stat-cell"><div class="stat-value" id="statStarsThisWeek">--</div><div class="stat-label">cette semaine</div></div>
+        <div class="stat-cell"><div class="stat-value" id="statStarsPeak">--</div><div class="stat-label">pic journalier</div></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Courbe cumulative</div>
+        <div class="section-note">observations</div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-wrap"><canvas id="chartStarsCumul"></canvas></div>
+      </div>
+
       <div class="section-header">
         <div class="section-title">Sismogramme journalier</div>
-        <div class="section-note">impulsions par jour</div>
+        <div class="section-note">impulsions / jour</div>
       </div>
       <div class="chart-panel">
-        <div class="chart-wrap"><canvas id="chartDaily"></canvas></div>
+        <div class="chart-wrap"><canvas id="chartStarsDaily"></canvas></div>
       </div>
-    </div>
-    <div>
+
       <div class="section-header">
-        <div class="section-title">Releve hebdomadaire</div>
-        <div class="section-note">impulsions par semaine</div>
+        <div class="section-title">Carte de densite</div>
+        <div class="section-note">activite par jour</div>
       </div>
-      <div class="chart-panel">
-        <div class="chart-wrap"><canvas id="chartWeekly"></canvas></div>
+      <div class="heatmap-container" id="heatmapStars">
+        <div class="empty-state">Chargement...</div>
       </div>
     </div>
-  </div>
 
-  <div class="section-header">
-    <div class="section-title">Carte de densite stellaire</div>
-    <div class="section-note">activite par jour — cercles proportionnels</div>
-  </div>
-  <div class="heatmap-container" id="heatmapContainer">
-    <div class="empty-state">Chargement de la carte...</div>
-  </div>
+    <div class="two-col-divider"></div>
 
-  <div class="section-header">
-    <div class="section-title">Journal des telechargements</div>
-    <div class="section-note" id="downloadsNote">releves quotidiens des releases</div>
-  </div>
-  <div class="downloads-panel" id="downloadsPanel">
-    <div class="empty-state">Chargement du journal...</div>
-  </div>
+    <!-- ─── Colonne Telechargements ─── -->
+    <div class="col-downloads">
+      <div class="col-eyebrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Telechargements
+        <span class="count" id="downloadsCount">--</span>
+      </div>
 
-  <div class="section-header">
-    <div class="section-title">Registre des observateurs</div>
-    <div class="section-note" id="stargazerCount">-- entrees</div>
-  </div>
-  <div class="stargazer-list" id="stargazerList">
-    <div class="empty-state">Consultation du registre...</div>
+      <div class="stats-row">
+        <div class="stat-cell"><div class="stat-value" id="statDlThisWeek">--</div><div class="stat-label">cette semaine</div></div>
+        <div class="stat-cell"><div class="stat-value" id="statDlPeak">--</div><div class="stat-label">pic journalier</div></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Courbe cumulative</div>
+        <div class="section-note">tirages</div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-wrap"><canvas id="chartDlCumul"></canvas></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Sismogramme journalier</div>
+        <div class="section-note">tirages / jour</div>
+      </div>
+      <div class="chart-panel">
+        <div class="chart-wrap"><canvas id="chartDlDaily"></canvas></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title">Carte de densite</div>
+        <div class="section-note">activite par jour</div>
+      </div>
+      <div class="heatmap-container" id="heatmapDownloads">
+        <div class="empty-state">Chargement...</div>
+      </div>
+    </div>
+
   </div>
 
   <div class="colophon">
@@ -535,8 +541,12 @@ const REPO = 'scub-france/Docling-Studio';
 const API = `https://api.github.com/repos/${REPO}/stargazers`;
 
 let allStargazers = [];
-let filtered = [];
-let chartCumulative, chartDaily, chartWeekly, chartDownloads;
+let allDownloads = [];         // [{date: 'YYYY-MM-DD', count: n}] — full series
+let downloadsTotalAll = 0;     // total (pre-window)
+let filteredStars = [];
+let filteredDownloads = [];
+let currentPeriod = 'all';
+let chartStarsCumul, chartStarsDaily, chartDlCumul, chartDlDaily;
 
 /* ═══ Chart.js plugins ═══ */
 const crosshairPlugin = {
@@ -627,65 +637,61 @@ async function fetchAll() {
   })).sort((a, b) => a.date - b.date);
 }
 
+let bootDone = false;
 async function refreshData() {
   const btn = document.getElementById('btnRefresh');
   btn.classList.add('spinning'); btn.disabled = true;
   try {
-    allStargazers = await fetchAll();
-    applyFilter('all');
-    toast(`${allStargazers.length} etoiles chargees`);
+    const [stars] = await Promise.all([fetchAll(), loadDownloads()]);
+    allStargazers = stars;
+    applyFilter(currentPeriod);
+    if (bootDone) toast(`${allStargazers.length} etoiles chargees`);
+    bootDone = true;
   } catch (e) { toast('Erreur : ' + e.message); }
   finally { btn.classList.remove('spinning'); btn.disabled = false; }
 }
 
+/* ═══ Window bounds ═══ */
+function periodWindow() {
+  if (currentPeriod === 'all') {
+    const startCandidates = [];
+    if (allStargazers.length) startCandidates.push(allStargazers[0].date);
+    if (allDownloads.length) startCandidates.push(new Date(allDownloads[0].date + 'T00:00:00Z'));
+    const from = startCandidates.length ? new Date(Math.min(...startCandidates.map(d => d.getTime()))) : new Date();
+    const to = new Date();
+    return { from, to };
+  }
+  const to = new Date();
+  const from = new Date();
+  from.setDate(from.getDate() - Number(currentPeriod));
+  return { from, to };
+}
+
 /* ═══ Filters ═══ */
 function applyFilter(period) {
+  currentPeriod = period;
   document.querySelectorAll('.filter-btn[data-period]').forEach(b =>
     b.classList.toggle('active', b.dataset.period === String(period))
   );
-  if (period === 'all') {
-    filtered = [...allStargazers];
-    if (allStargazers.length) {
-      document.getElementById('dateFrom').value = allStargazers[0].dateStr;
-      document.getElementById('dateTo').value = allStargazers[allStargazers.length - 1].dateStr;
-    }
-  } else {
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - Number(period));
-    filtered = allStargazers.filter(s => s.date >= cutoff);
-    document.getElementById('dateFrom').value = cutoff.toISOString().split('T')[0];
-    document.getElementById('dateTo').value = new Date().toISOString().split('T')[0];
-  }
-  updateAll();
-}
-
-function applyDateRange() {
-  const from = document.getElementById('dateFrom').value;
-  const to = document.getElementById('dateTo').value;
-  if (!from || !to) return;
-  document.querySelectorAll('.filter-btn[data-period]').forEach(b => b.classList.remove('active'));
-  const f = new Date(from), t = new Date(to);
-  t.setHours(23, 59, 59);
-  filtered = allStargazers.filter(s => s.date >= f && s.date <= t);
+  const { from, to } = periodWindow();
+  filteredStars = allStargazers.filter(s => s.date >= from && s.date <= to);
+  filteredDownloads = allDownloads.filter(d => {
+    const dt = new Date(d.date + 'T12:00:00Z');
+    return dt >= from && dt <= to;
+  });
   updateAll();
 }
 
 document.querySelectorAll('.filter-btn[data-period]').forEach(btn =>
   btn.addEventListener('click', () => applyFilter(btn.dataset.period))
 );
-document.getElementById('dateFrom').addEventListener('change', applyDateRange);
-document.getElementById('dateTo').addEventListener('change', applyDateRange);
 document.getElementById('btnRefresh').addEventListener('click', refreshData);
 
 /* ═══ Update all ═══ */
 function updateAll() {
   updateHero();
-  updateStats();
-  updateCumulative();
-  updateDaily();
-  updateWeekly();
-  updateHeatmap();
-  updateList();
+  updateStarsColumn();
+  updateDownloadsColumn();
 }
 
 /* ── Hero ── */
@@ -698,22 +704,14 @@ function updateHero() {
     const last = allStargazers[allStargazers.length - 1];
     document.getElementById('heroMeta').textContent = `derniere observation : ${fmtDate(last.date)}`;
   }
-}
 
-/* ── Stats (filtered) ── */
-function updateStats() {
-  const n = filtered.length;
-  document.getElementById('statTotal').textContent = n;
-  const weekAgo = new Date(); weekAgo.setDate(weekAgo.getDate() - 7);
-  document.getElementById('statThisWeek').textContent = filtered.filter(s => s.date >= weekAgo).length;
-  if (n > 1) {
-    const days = Math.max(1, (filtered[n-1].date - filtered[0].date) / 86400000);
-    document.getElementById('statAvg').textContent = (n / (days / 7)).toFixed(1);
-  } else {
-    document.getElementById('statAvg').textContent = '--';
+  animateNum(document.getElementById('heroDownloads'), downloadsTotalAll);
+  const dlLast7 = allDownloads.slice(-7).reduce((s, d) => s + d.count, 0);
+  document.getElementById('heroDownloadsDelta').querySelector('span').textContent = `+${dlLast7} cette semaine`;
+  if (allDownloads.length) {
+    const last = allDownloads[allDownloads.length - 1];
+    document.getElementById('heroDownloadsMeta').textContent = `releve : ${fmtDate(new Date(last.date + 'T12:00:00Z'))}`;
   }
-  const daily = groupByDay(filtered);
-  document.getElementById('statPeak').textContent = Math.max(0, ...Object.values(daily)) || '--';
 }
 
 /* ── Chart options ── */
@@ -757,19 +755,19 @@ function chartOpts(yTitle) {
   };
 }
 
-/* ── Cumulative (with hatch pattern + glow) ── */
-function updateCumulative() {
-  if (!filtered.length) return;
-  const startIdx = allStargazers.indexOf(filtered[0]);
-  const daily = groupByDay(filtered);
-  const days = Object.keys(daily).sort();
-  let cumul = startIdx;
-  const values = days.map(d => { cumul += daily[d]; return cumul; });
+/* ── Helpers for continuous daily series ── */
+function eachDayISO(from, to) {
+  const days = [];
+  const cur = new Date(from.getFullYear(), from.getMonth(), from.getDate());
+  const end = new Date(to.getFullYear(), to.getMonth(), to.getDate());
+  while (cur <= end) {
+    days.push(cur.toISOString().split('T')[0]);
+    cur.setDate(cur.getDate() + 1);
+  }
+  return days;
+}
 
-  const ctx = document.getElementById('chartCumulative');
-  if (chartCumulative) chartCumulative.destroy();
-
-  // Hatch pattern
+function makeHatchPattern(ctx) {
   const pc = document.createElement('canvas');
   pc.width = 8; pc.height = 8;
   const p = pc.getContext('2d');
@@ -778,120 +776,71 @@ function updateCumulative() {
   p.beginPath(); p.moveTo(0, 8); p.lineTo(8, 0); p.stroke();
   p.beginPath(); p.moveTo(-2, 2); p.lineTo(2, -2); p.stroke();
   p.beginPath(); p.moveTo(6, 10); p.lineTo(10, 6); p.stroke();
-  const pattern = ctx.getContext('2d').createPattern(pc, 'repeat');
+  return ctx.getContext('2d').createPattern(pc, 'repeat');
+}
 
-  chartCumulative = new Chart(ctx, {
+/* ── Generic chart renderers ── */
+function renderCumulative(canvasId, labels, values, yTitle, tooltipLabel, existing) {
+  const ctx = document.getElementById(canvasId);
+  if (existing) existing.destroy();
+  const pattern = makeHatchPattern(ctx);
+  return new Chart(ctx, {
     type: 'line',
     data: {
-      labels: days,
+      labels,
       datasets: [{
         data: values,
         borderColor: '#1a1915',
-        borderWidth: 2,
-        fill: true,
-        backgroundColor: pattern,
-        pointRadius: 0,
-        pointHoverRadius: 5,
+        borderWidth: 2, fill: true, backgroundColor: pattern,
+        pointRadius: 0, pointHoverRadius: 5,
         pointHoverBackgroundColor: '#c9a227',
         pointHoverBorderColor: '#1a1915',
-        pointHoverBorderWidth: 2,
-        tension: 0.3
+        pointHoverBorderWidth: 2, tension: 0.3,
       }]
     },
     options: {
-      ...chartOpts('Etoiles cumulees'),
+      ...chartOpts(yTitle),
       plugins: {
         ...chartOpts('').plugins,
         tooltip: {
           ...chartOpts('').plugins.tooltip,
-          callbacks: {
-            title: items => {
-              const idx = items[0].dataIndex;
-              const day = days[idx];
-              const stars = filtered.filter(s => s.dateStr === day);
-              return stars.map(s => s.login).join(', ') || day;
-            },
-            label: item => `${item.raw} etoiles cumulees`
-          }
+          callbacks: { label: item => `${item.raw} ${tooltipLabel}` }
         }
       }
     }
   });
 }
 
-/* ── Daily sismograph ── */
-function updateDaily() {
-  const daily = groupByDay(filtered);
-  const days = Object.keys(daily).sort();
-  const ctx = document.getElementById('chartDaily');
-  if (chartDaily) chartDaily.destroy();
-  chartDaily = new Chart(ctx, {
+function renderDaily(canvasId, labels, values, yTitle, existing) {
+  const ctx = document.getElementById(canvasId);
+  if (existing) existing.destroy();
+  return new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: days,
+      labels,
       datasets: [{
-        data: days.map(d => daily[d]),
+        data: values,
         backgroundColor: '#1a1915',
-        barPercentage: 0.15,
+        barPercentage: 0.25,
         categoryPercentage: 1.0,
-        borderRadius: 0, borderSkipped: false
+        borderRadius: 0, borderSkipped: false,
       }]
     },
-    options: chartOpts('Impulsions / jour')
+    options: chartOpts(yTitle),
   });
 }
 
-/* ── Weekly ── */
-function updateWeekly() {
-  const weekly = {};
-  filtered.forEach(s => {
-    const w = getWeekStart(s.date);
-    weekly[w] = (weekly[w] || 0) + 1;
-  });
-  const weeks = Object.keys(weekly).sort();
-  const ctx = document.getElementById('chartWeekly');
-  if (chartWeekly) chartWeekly.destroy();
+function renderHeatmap(containerId, dailyMap, fromDate, toDate, labelNoun) {
+  const container = document.getElementById(containerId);
+  const maxVal = Math.max(1, ...Object.values(dailyMap));
 
-  const maxVal = Math.max(...Object.values(weekly), 0);
-  const colors = weeks.map(w => weekly[w] === maxVal && maxVal > 0 ? '#8b2500' : 'rgba(139,37,0,0.25)');
-
-  chartWeekly = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: weeks.map(w => {
-        const d = new Date(w);
-        return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'short' });
-      }),
-      datasets: [{
-        data: weeks.map(w => weekly[w]),
-        backgroundColor: colors,
-        barPercentage: 0.2,
-        categoryPercentage: 1.0,
-        borderRadius: 0, borderSkipped: false
-      }]
-    },
-    options: chartOpts('Impulsions / semaine')
-  });
-}
-
-/* ── Heatmap ── */
-function updateHeatmap() {
-  const container = document.getElementById('heatmapContainer');
-  const daily = groupByDay(filtered);
-  const maxVal = Math.max(1, ...Object.values(daily));
-
-  if (!filtered.length) {
-    container.innerHTML = '<div class="empty-state">Aucune observation sur cette periode</div>';
+  if (!Object.values(dailyMap).some(v => v > 0)) {
+    container.innerHTML = '<div class="empty-state">Aucune donnee sur cette periode</div>';
     return;
   }
 
-  // Use filtered date range, not hardcoded 52 weeks
-  const rangeFrom = new Date(document.getElementById('dateFrom').value + 'T00:00:00Z');
-  const rangeTo = new Date(document.getElementById('dateTo').value + 'T23:59:59Z');
-  const today = rangeTo > new Date() ? new Date() : rangeTo;
-
-  const start = new Date(rangeFrom);
-  // Align to previous Monday
+  const today = toDate > new Date() ? new Date() : toDate;
+  const start = new Date(fromDate);
   while (start.getDay() !== 1) start.setDate(start.getDate() - 1);
 
   const dayLabels = ['L', '', 'M', '', 'V', '', ''];
@@ -903,22 +852,19 @@ function updateHeatmap() {
   let monthsHtml = '';
   const cur = new Date(start);
   let prevMonth = -1;
-  let weekCount = 0;
 
   while (cur <= today) {
-    const weekStart = new Date(cur);
-    if (weekStart.getMonth() !== prevMonth) {
-      monthsHtml += `<span class="heatmap-month" style="width:${weekStart.getMonth() !== prevMonth ? 'auto' : '16px'}">${weekStart.toLocaleDateString('fr-FR', { month: 'short' })}</span>`;
-      prevMonth = weekStart.getMonth();
+    if (cur.getMonth() !== prevMonth) {
+      monthsHtml += `<span class="heatmap-month">${cur.toLocaleDateString('fr-FR', { month: 'short' })}</span>`;
+      prevMonth = cur.getMonth();
     }
-
     gridHtml += '<div class="heatmap-column">';
     for (let d = 0; d < 7; d++) {
       if (cur > today) {
         gridHtml += '<div class="heatmap-cell"></div>';
       } else {
         const ds = cur.toISOString().split('T')[0];
-        const count = daily[ds] || 0;
+        const count = dailyMap[ds] || 0;
         const size = count === 0 ? 2 : Math.max(4, Math.min(14, (count / maxVal) * 14));
         const opacity = count === 0 ? 0.06 : Math.max(0.2, count / maxVal);
         const color = count > maxVal * 0.5
@@ -929,7 +875,6 @@ function updateHeatmap() {
       cur.setDate(cur.getDate() + 1);
     }
     gridHtml += '</div>';
-    weekCount++;
   }
 
   container.innerHTML = `
@@ -951,13 +896,12 @@ function updateHeatmap() {
     </div>
   `;
 
-  // Tooltips
   const tip = document.getElementById('tooltip');
   container.querySelectorAll('.heatmap-cell[data-date]').forEach(cell => {
     cell.addEventListener('mouseenter', () => {
       const c = cell.dataset.count;
       const d = new Date(cell.dataset.date);
-      tip.textContent = `${d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} — ${c} etoile${c > 1 ? 's' : ''}`;
+      tip.textContent = `${d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long' })} — ${c} ${labelNoun}${c > 1 ? 's' : ''}`;
       tip.classList.add('visible');
     });
     cell.addEventListener('mousemove', e => {
@@ -968,79 +912,89 @@ function updateHeatmap() {
   });
 }
 
-/* ── List ── */
-function updateList() {
-  const list = document.getElementById('stargazerList');
-  document.getElementById('stargazerCount').textContent = `${filtered.length} entrees`;
+/* ── Stars column ── */
+function updateStarsColumn() {
+  document.getElementById('starsCount').textContent = `${filteredStars.length} sur la periode`;
 
-  if (!filtered.length) {
-    list.innerHTML = '<div class="empty-state">Aucune observation sur cette periode</div>';
+  const weekAgo = new Date(); weekAgo.setDate(weekAgo.getDate() - 7);
+  document.getElementById('statStarsThisWeek').textContent = filteredStars.filter(s => s.date >= weekAgo).length;
+  const dailyMap = groupByDay(filteredStars);
+  document.getElementById('statStarsPeak').textContent = Math.max(0, ...Object.values(dailyMap)) || '--';
+
+  const { from, to } = periodWindow();
+  const fromDate = filteredStars.length ? (currentPeriod === 'all' ? filteredStars[0].date : from) : from;
+  const toDate = new Date(Math.min(to.getTime(), Date.now()));
+
+  const labels = eachDayISO(fromDate, toDate);
+  const startCumul = allStargazers.findIndex(s => s.date >= fromDate);
+  let cumul = startCumul === -1 ? allStargazers.length : startCumul;
+  const cumulValues = labels.map(d => { cumul += dailyMap[d] || 0; return cumul; });
+  const dailyValues = labels.map(d => dailyMap[d] || 0);
+
+  chartStarsCumul = renderCumulative('chartStarsCumul', labels, cumulValues, 'Etoiles cumulees', 'etoiles cumulees', chartStarsCumul);
+  chartStarsDaily = renderDaily('chartStarsDaily', labels, dailyValues, 'Impulsions / jour', chartStarsDaily);
+  renderHeatmap('heatmapStars', dailyMap, fromDate, toDate, 'etoile');
+}
+
+/* ── Downloads column ── */
+function updateDownloadsColumn() {
+  const dailyMap = {};
+  filteredDownloads.forEach(d => { dailyMap[d.date] = d.count; });
+  const total = filteredDownloads.reduce((s, d) => s + d.count, 0);
+  document.getElementById('downloadsCount').textContent = `${total} sur la periode`;
+
+  const weekAgo = new Date(); weekAgo.setDate(weekAgo.getDate() - 7);
+  const weekTotal = filteredDownloads
+    .filter(d => new Date(d.date + 'T12:00:00Z') >= weekAgo)
+    .reduce((s, d) => s + d.count, 0);
+  document.getElementById('statDlThisWeek').textContent = weekTotal;
+  document.getElementById('statDlPeak').textContent = Math.max(0, ...filteredDownloads.map(d => d.count)) || '--';
+
+  if (!filteredDownloads.length) {
+    if (chartDlCumul) chartDlCumul.destroy();
+    if (chartDlDaily) chartDlDaily.destroy();
+    document.getElementById('heatmapDownloads').innerHTML = '<div class="empty-state">Aucune donnee sur cette periode</div>';
     return;
   }
 
-  const reversed = [...filtered].reverse();
-  list.innerHTML = reversed.map((s, i) => `
-    <div class="stargazer-row">
-      <div class="stargazer-index">${String(filtered.length - i).padStart(3, '0')}</div>
-      <img class="stargazer-avatar" src="${s.avatar}&s=56" alt="${s.login}" loading="lazy">
-      <div class="stargazer-name"><a href="${s.url}" target="_blank" rel="noopener">${s.login}</a></div>
-      <div class="stargazer-date">${fmtDate(s.date)}</div>
-    </div>
-  `).join('');
+  const { from, to } = periodWindow();
+  const firstDl = new Date(filteredDownloads[0].date + 'T12:00:00Z');
+  const fromDate = currentPeriod === 'all' ? firstDl : from;
+  const toDate = new Date(Math.min(to.getTime(), Date.now()));
+
+  const labels = eachDayISO(fromDate, toDate);
+
+  // Cumul baseline: downloads before window
+  let cumul = 0;
+  for (const d of allDownloads) {
+    const dt = new Date(d.date + 'T12:00:00Z');
+    if (dt < fromDate) cumul += d.count; else break;
+  }
+  const cumulValues = labels.map(d => { cumul += dailyMap[d] || 0; return cumul; });
+  const dailyValues = labels.map(d => dailyMap[d] || 0);
+
+  chartDlCumul = renderCumulative('chartDlCumul', labels, cumulValues, 'Tirages cumules', 'tirages cumules', chartDlCumul);
+  chartDlDaily = renderDaily('chartDlDaily', labels, dailyValues, 'Tirages / jour', chartDlDaily);
+  renderHeatmap('heatmapDownloads', dailyMap, fromDate, toDate, 'tirage');
 }
 
-/* ═══ Downloads ═══ */
+/* ═══ Downloads fetch ═══ */
 async function loadDownloads() {
-  const panel = document.getElementById('downloadsPanel');
   try {
     const r = await fetch('downloads.json', { cache: 'no-store' });
     if (!r.ok) throw new Error('no data');
     const data = await r.json();
-    if (!data || !data.daily || !data.daily.length) throw new Error('empty');
-    renderDownloads(data);
+    if (!data || !data.daily) throw new Error('empty');
+    allDownloads = data.daily.slice();
+    downloadsTotalAll = data.total || allDownloads.reduce((s, d) => s + d.count, 0);
   } catch (e) {
-    panel.innerHTML = '<div class="empty-state">Aucun releve disponible pour le moment</div>';
+    allDownloads = [];
+    downloadsTotalAll = 0;
   }
-}
-
-function renderDownloads(data) {
-  const panel = document.getElementById('downloadsPanel');
-  const firstIdx = data.daily.findIndex(d => d.count > 0);
-  const visible = firstIdx <= 0 ? data.daily : data.daily.slice(firstIdx);
-
-  const note = document.getElementById('downloadsNote');
-  note.textContent = `${visible.length} jours \u00b7 du ${visible[0].date} au ${visible[visible.length-1].date}`;
-
-  panel.innerHTML = `
-    <div class="downloads-card">
-      <div class="downloads-total" id="downloadsTotal">0</div>
-      <div class="downloads-total-label">telechargements cumules</div>
-    </div>
-    <div class="downloads-chart-wrap"><canvas id="chartDownloads"></canvas></div>
-  `;
-  animateNum(document.getElementById('downloadsTotal'), data.total);
-
-  const ctx = document.getElementById('chartDownloads');
-  if (chartDownloads) chartDownloads.destroy();
-  chartDownloads = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: visible.map(d => d.date),
-      datasets: [{
-        data: visible.map(d => d.count),
-        backgroundColor: '#1a1915',
-        barPercentage: 0.5,
-        categoryPercentage: 1.0,
-        borderRadius: 0, borderSkipped: false,
-      }],
-    },
-    options: chartOpts('Telechargements / jour'),
-  });
 }
 
 /* ═══ Boot ═══ */
 refreshData();
-loadDownloads();
 </script>
 
 </body>
