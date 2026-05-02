@@ -22,20 +22,20 @@
   <text x="178" y="32" font-size="11" font-weight="500" letter-spacing="0.06em" fill="rgba(26,25,21,0.45)">scub-france/Docling-Studio</text>
 
   <!-- Count -->
-  <text x="800" y="30" font-size="34" font-weight="800" fill="#1a1915" text-anchor="end" letter-spacing="-0.02em">92</text>
+  <text x="800" y="30" font-size="34" font-weight="800" fill="#1a1915" text-anchor="end" letter-spacing="-0.02em">93</text>
   <text x="800" y="46" font-size="10" fill="rgba(26,25,21,0.35)" text-anchor="end" font-style="italic">etoiles observees</text>
 
   <!-- Weekly badge -->
   <rect x="704" y="54" width="96" height="20" rx="2" fill="none" stroke="rgba(201,162,39,0.35)"/>
-  <text x="752" y="67" font-size="9" font-weight="600" fill="#c9a227" text-anchor="middle" letter-spacing="0.04em">↗ +18 THIS WEEK</text>
+  <text x="752" y="67" font-size="9" font-weight="600" fill="#c9a227" text-anchor="middle" letter-spacing="0.04em">↗ +19 THIS WEEK</text>
 
   <line x1="60" y1="90" x2="800" y2="90" stroke="rgba(26,25,21,0.1)"/>
 
   <!-- Stats row -->
-  <text x="152.5" y="128" font-size="26" font-weight="600" fill="#1a1915" text-anchor="middle" letter-spacing="-0.02em">92</text>
+  <text x="152.5" y="128" font-size="26" font-weight="600" fill="#1a1915" text-anchor="middle" letter-spacing="-0.02em">93</text>
   <text x="152.5" y="146" font-size="11" fill="rgba(26,25,21,0.4)" text-anchor="middle" font-style="italic">sur la periode</text>
   <line x1="245.0" y1="98" x2="245.0" y2="152" stroke="rgba(26,25,21,0.1)"/>
-  <text x="337.5" y="128" font-size="26" font-weight="600" fill="#1a1915" text-anchor="middle" letter-spacing="-0.02em">+18</text>
+  <text x="337.5" y="128" font-size="26" font-weight="600" fill="#1a1915" text-anchor="middle" letter-spacing="-0.02em">+19</text>
   <text x="337.5" y="146" font-size="11" fill="rgba(26,25,21,0.4)" text-anchor="middle" font-style="italic">cette semaine</text>
   <line x1="430.0" y1="98" x2="430.0" y2="152" stroke="rgba(26,25,21,0.1)"/>
   <text x="522.5" y="128" font-size="26" font-weight="600" fill="#1a1915" text-anchor="middle" letter-spacing="-0.02em">2.3</text>
@@ -48,43 +48,43 @@
 
   <line x1="60" y1="370.0" x2="800" y2="370.0" stroke="rgba(26,25,21,0.05)"/>
   <text x="52" y="373.0" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">0</text>
-  <line x1="60" y1="330.9" x2="800" y2="330.9" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="333.9" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">18</text>
-  <line x1="60" y1="291.7" x2="800" y2="291.7" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="294.7" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">36</text>
-  <line x1="60" y1="252.6" x2="800" y2="252.6" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="255.6" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">54</text>
-  <line x1="60" y1="213.5" x2="800" y2="213.5" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="216.5" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">72</text>
-  <line x1="60" y1="174.3" x2="800" y2="174.3" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="177.3" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">90</text>
+  <line x1="60" y1="331.3" x2="800" y2="331.3" stroke="rgba(26,25,21,0.05)"/>
+  <text x="52" y="334.3" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">18</text>
+  <line x1="60" y1="292.6" x2="800" y2="292.6" stroke="rgba(26,25,21,0.05)"/>
+  <text x="52" y="295.6" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">36</text>
+  <line x1="60" y1="253.9" x2="800" y2="253.9" stroke="rgba(26,25,21,0.05)"/>
+  <text x="52" y="256.9" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">54</text>
+  <line x1="60" y1="215.2" x2="800" y2="215.2" stroke="rgba(26,25,21,0.05)"/>
+  <text x="52" y="218.2" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">72</text>
+  <line x1="60" y1="176.5" x2="800" y2="176.5" stroke="rgba(26,25,21,0.05)"/>
+  <text x="52" y="179.5" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">90</text>
   <line x1="60" y1="170.0" x2="800" y2="170.0" stroke="rgba(26,25,21,0.05)"/>
-  <text x="52" y="173.0" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">92</text>
+  <text x="52" y="173.0" font-size="9" fill="rgba(26,25,21,0.3)" text-anchor="end" font-weight="500">93</text>
   <text x="60.0" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Jul 25</text>
-  <text x="123.7" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Aug 25</text>
-  <text x="177.8" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Sep 25</text>
-  <text x="530.7" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Jan 26</text>
-  <text x="719.4" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Mar 26</text>
-  <text x="721.5" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Apr 26</text>
-  <text x="798.5" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">May 26</text>
+  <text x="123.6" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Aug 25</text>
+  <text x="177.7" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Sep 25</text>
+  <text x="530.2" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Jan 26</text>
+  <text x="718.7" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Mar 26</text>
+  <text x="720.8" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">Apr 26</text>
+  <text x="797.8" y="388" font-size="9" fill="rgba(26,25,21,0.3)" font-weight="500" letter-spacing="0.03em">May 26</text>
 
   <line x1="60" y1="170" x2="60" y2="370" stroke="rgba(26,25,21,0.12)"/>
   <line x1="60" y1="370" x2="800" y2="370" stroke="rgba(26,25,21,0.12)"/>
 
-  <path d="M 60.0,370 L 60.0,367.8 L 62.2,365.7 L 123.7,363.5 L 136.6,361.3 L 177.8,359.1 L 530.7,357.0 L 719.4,354.8 L 720.0,352.6 L 720.1,350.4 L 720.1,348.3 L 720.2,346.1 L 720.5,343.9 L 720.6,341.7 L 720.7,339.6 L 721.5,337.4 L 722.4,335.2 L 724.4,333.0 L 725.5,330.9 L 726.8,328.7 L 727.8,326.5 L 729.7,324.3 L 732.1,322.2 L 733.9,320.0 L 734.4,317.8 L 735.8,315.7 L 737.6,313.5 L 740.0,311.3 L 740.1,309.1 L 740.2,307.0 L 740.2,304.8 L 740.2,302.6 L 740.9,300.4 L 741.9,298.3 L 743.2,296.1 L 743.6,293.9 L 744.8,291.7 L 745.8,289.6 L 746.3,287.4 L 747.2,285.2 L 748.2,283.0 L 748.6,280.9 L 748.7,278.7 L 749.0,276.5 L 750.4,274.3 L 753.3,272.2 L 753.7,270.0 L 754.3,267.8 L 755.6,265.7 L 756.0,263.5 L 756.2,261.3 L 757.1,259.1 L 758.1,257.0 L 758.2,254.8 L 758.6,252.6 L 759.1,250.4 L 760.1,248.3 L 760.5,246.1 L 761.2,243.9 L 761.9,241.7 L 762.4,239.6 L 763.4,237.4 L 765.8,235.2 L 771.1,233.0 L 773.0,230.9 L 773.0,228.7 L 776.1,226.5 L 776.9,224.3 L 777.1,222.2 L 777.1,220.0 L 777.1,217.8 L 779.1,215.7 L 780.9,213.5 L 781.0,211.3 L 782.3,209.1 L 786.2,207.0 L 786.8,204.8 L 787.5,202.6 L 787.5,200.4 L 791.7,198.3 L 791.8,196.1 L 794.8,193.9 L 794.8,191.7 L 795.5,189.6 L 796.0,187.4 L 796.2,185.2 L 796.4,183.0 L 797.0,180.9 L 797.3,178.7 L 797.5,176.5 L 798.5,174.3 L 799.4,172.2 L 800.0,170.0 L 800.0,370 Z" fill="url(#h)"/>
-  <polyline points="60.0,367.8 62.2,365.7 123.7,363.5 136.6,361.3 177.8,359.1 530.7,357.0 719.4,354.8 720.0,352.6 720.1,350.4 720.1,348.3 720.2,346.1 720.5,343.9 720.6,341.7 720.7,339.6 721.5,337.4 722.4,335.2 724.4,333.0 725.5,330.9 726.8,328.7 727.8,326.5 729.7,324.3 732.1,322.2 733.9,320.0 734.4,317.8 735.8,315.7 737.6,313.5 740.0,311.3 740.1,309.1 740.2,307.0 740.2,304.8 740.2,302.6 740.9,300.4 741.9,298.3 743.2,296.1 743.6,293.9 744.8,291.7 745.8,289.6 746.3,287.4 747.2,285.2 748.2,283.0 748.6,280.9 748.7,278.7 749.0,276.5 750.4,274.3 753.3,272.2 753.7,270.0 754.3,267.8 755.6,265.7 756.0,263.5 756.2,261.3 757.1,259.1 758.1,257.0 758.2,254.8 758.6,252.6 759.1,250.4 760.1,248.3 760.5,246.1 761.2,243.9 761.9,241.7 762.4,239.6 763.4,237.4 765.8,235.2 771.1,233.0 773.0,230.9 773.0,228.7 776.1,226.5 776.9,224.3 777.1,222.2 777.1,220.0 777.1,217.8 779.1,215.7 780.9,213.5 781.0,211.3 782.3,209.1 786.2,207.0 786.8,204.8 787.5,202.6 787.5,200.4 791.7,198.3 791.8,196.1 794.8,193.9 794.8,191.7 795.5,189.6 796.0,187.4 796.2,185.2 796.4,183.0 797.0,180.9 797.3,178.7 797.5,176.5 798.5,174.3 799.4,172.2 800.0,170.0" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+  <path d="M 60.0,370 L 60.0,367.8 L 62.2,365.7 L 123.6,363.5 L 136.5,361.4 L 177.7,359.2 L 530.2,357.1 L 718.7,354.9 L 719.3,352.8 L 719.4,350.6 L 719.5,348.5 L 719.6,346.3 L 719.8,344.2 L 719.9,342.0 L 720.1,339.9 L 720.8,337.7 L 721.7,335.6 L 723.7,333.4 L 724.9,331.3 L 726.1,329.1 L 727.1,327.0 L 729.0,324.8 L 731.4,322.7 L 733.2,320.5 L 733.7,318.4 L 735.1,316.2 L 736.9,314.1 L 739.3,311.9 L 739.4,309.8 L 739.5,307.6 L 739.5,305.5 L 739.5,303.3 L 740.2,301.2 L 741.2,299.0 L 742.5,296.9 L 742.9,294.7 L 744.1,292.6 L 745.1,290.4 L 745.6,288.3 L 746.5,286.1 L 747.4,284.0 L 747.9,281.8 L 748.0,279.7 L 748.3,277.5 L 749.7,275.4 L 752.6,273.2 L 753.0,271.1 L 753.6,268.9 L 754.9,266.8 L 755.3,264.6 L 755.5,262.5 L 756.4,260.3 L 757.3,258.2 L 757.5,256.0 L 757.9,253.9 L 758.4,251.7 L 759.3,249.6 L 759.7,247.4 L 760.5,245.3 L 761.2,243.1 L 761.6,241.0 L 762.7,238.8 L 765.1,236.7 L 770.4,234.5 L 772.3,232.4 L 772.3,230.2 L 775.3,228.1 L 776.1,225.9 L 776.3,223.8 L 776.3,221.6 L 776.3,219.5 L 778.4,217.3 L 780.2,215.2 L 780.3,213.0 L 781.6,210.9 L 785.5,208.7 L 786.0,206.6 L 786.8,204.4 L 786.8,202.3 L 790.9,200.1 L 791.0,198.0 L 794.0,195.8 L 794.0,193.7 L 794.7,191.5 L 795.3,189.4 L 795.5,187.2 L 795.6,185.1 L 796.2,182.9 L 796.6,180.8 L 796.8,178.6 L 797.8,176.5 L 798.6,174.3 L 799.2,172.2 L 800.0,170.0 L 800.0,370 Z" fill="url(#h)"/>
+  <polyline points="60.0,367.8 62.2,365.7 123.6,363.5 136.5,361.4 177.7,359.2 530.2,357.1 718.7,354.9 719.3,352.8 719.4,350.6 719.5,348.5 719.6,346.3 719.8,344.2 719.9,342.0 720.1,339.9 720.8,337.7 721.7,335.6 723.7,333.4 724.9,331.3 726.1,329.1 727.1,327.0 729.0,324.8 731.4,322.7 733.2,320.5 733.7,318.4 735.1,316.2 736.9,314.1 739.3,311.9 739.4,309.8 739.5,307.6 739.5,305.5 739.5,303.3 740.2,301.2 741.2,299.0 742.5,296.9 742.9,294.7 744.1,292.6 745.1,290.4 745.6,288.3 746.5,286.1 747.4,284.0 747.9,281.8 748.0,279.7 748.3,277.5 749.7,275.4 752.6,273.2 753.0,271.1 753.6,268.9 754.9,266.8 755.3,264.6 755.5,262.5 756.4,260.3 757.3,258.2 757.5,256.0 757.9,253.9 758.4,251.7 759.3,249.6 759.7,247.4 760.5,245.3 761.2,243.1 761.6,241.0 762.7,238.8 765.1,236.7 770.4,234.5 772.3,232.4 772.3,230.2 775.3,228.1 776.1,225.9 776.3,223.8 776.3,221.6 776.3,219.5 778.4,217.3 780.2,215.2 780.3,213.0 781.6,210.9 785.5,208.7 786.0,206.6 786.8,204.4 786.8,202.3 790.9,200.1 791.0,198.0 794.0,195.8 794.0,193.7 794.7,191.5 795.3,189.4 795.5,187.2 795.6,185.1 796.2,182.9 796.6,180.8 796.8,178.6 797.8,176.5 798.6,174.3 799.2,172.2 800.0,170.0" fill="none" stroke="url(#lg)" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 
   <circle cx="800.0" cy="170.0" r="4.5" fill="#8b2500"/>
   <circle cx="800.0" cy="170.0" r="2" fill="#f5f0e8"/>
-  <circle cx="720.1" cy="348.3" r="2.5" fill="#c9a227" opacity="0.8"/>
-  <text x="726.1" y="351.3" font-size="8" fill="#c9a227" font-weight="600">10</text>
-  <circle cx="735.8" cy="315.7" r="2.5" fill="#c9a227" opacity="0.8"/>
-  <text x="741.8" y="318.7" font-size="8" fill="#c9a227" font-weight="600">25</text>
-  <circle cx="756.2" cy="261.3" r="2.5" fill="#c9a227" opacity="0.8"/>
-  <text x="762.2" y="264.3" font-size="8" fill="#c9a227" font-weight="600">50</text>
+  <circle cx="719.5" cy="348.5" r="2.5" fill="#c9a227" opacity="0.8"/>
+  <text x="725.5" y="351.5" font-size="8" fill="#c9a227" font-weight="600">10</text>
+  <circle cx="735.1" cy="316.2" r="2.5" fill="#c9a227" opacity="0.8"/>
+  <text x="741.1" y="319.2" font-size="8" fill="#c9a227" font-weight="600">25</text>
+  <circle cx="755.5" cy="262.5" r="2.5" fill="#c9a227" opacity="0.8"/>
+  <text x="761.5" y="265.5" font-size="8" fill="#c9a227" font-weight="600">50</text>
 
   <line x1="60" y1="402" x2="800" y2="402" stroke="rgba(26,25,21,0.06)"/>
-  <text x="60" y="414" font-size="8" fill="rgba(26,25,21,0.25)" font-style="italic">2.3 etoiles/sem · maj 01 May 2026 19:11 UTC</text>
+  <text x="60" y="414" font-size="8" fill="rgba(26,25,21,0.25)" font-style="italic">2.3 etoiles/sem · maj 02 May 2026 02:40 UTC</text>
   <text x="800" y="414" font-size="7" fill="rgba(26,25,21,0.18)" text-anchor="end" letter-spacing="0.1em">OBSERVATOIRE MMXXVI</text>
 
 </svg>
